@@ -1,0 +1,16 @@
+flowchart LR
+    VM[Linux VM]
+    MI[System-assigned MI]
+    Entra[Microsoft Entra ID]
+    Token[Access token]
+    KV[Key Vault]
+    Role[Key Vault Secrets User<br/>role assignment]
+    Secret[Secret value]
+
+    VM --> MI
+    MI --> Entra
+    Entra --> Token
+    Token --> KV
+    Role -.grants access.-> KV
+    KV --> Secret
+    Secret --> VM

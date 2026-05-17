@@ -1,0 +1,19 @@
+flowchart LR
+    Dev[git push origin main]
+    GH[GitHub Actions runner]
+    OIDC[OIDC token]
+    Entra[Microsoft Entra ID<br/>federated credential]
+    AT[Short-lived token]
+    AZ[az login --federated-token]
+    Bicep[Bicep what-if + deploy]
+    ARM[Azure Resource Manager]
+    RG[rg-iac-lab-eastus-01]
+
+    Dev --> GH
+    GH -.exchange.-> OIDC
+    OIDC -.subject:<br/>repo:.../ref:refs/heads/main.-> Entra
+    Entra --> AT
+    AT --> AZ
+    AZ --> Bicep
+    Bicep --> ARM
+    ARM --> RG

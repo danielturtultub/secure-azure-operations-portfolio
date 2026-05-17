@@ -1,0 +1,71 @@
+flowchart TB
+    subgraph Identity["Identity & Access"]
+        Entra[Microsoft Entra ID]
+        CA[Conditional Access<br/>report-only mode]
+        AUs[Administrative Units]
+        Sync[Connect Sync from on-prem AD]
+    end
+
+    subgraph Govern["Governance"]
+        MG[Lab MG]
+        Init[Lab Hygiene Initiative]
+        Lock[CanNotDelete locks]
+        Budgets[Budgets per-sub<br/>+ MG rollup]
+    end
+
+    subgraph Network["Network — Hub & Spoke"]
+        Hub[Hub VNet]
+        Spokes[2 spokes peered]
+        FW[Azure Firewall]
+        AppGW[AppGW WAF v2]
+        FD[Front Door]
+        VPN[VPN Gateway]
+        Bastion[Bastion Standard]
+    end
+
+    subgraph Compute["Compute"]
+        AvSet[AvSet workloads]
+        Zones[Zone-redundant workloads]
+        VMSS[VM Scale Sets]
+        JIT[JIT VM access]
+    end
+
+    subgraph Data["Data"]
+        SA[Hardened storage<br/>private endpoint]
+        Files[Files w/ Entra Kerberos]
+        CMK[Customer-managed keys]
+    end
+
+    subgraph Security["Security"]
+        KV[Key Vault RBAC mode]
+        MI[Managed Identity]
+        Defender[Defender for Cloud<br/>5 plans]
+    end
+
+    subgraph Observe["Observability"]
+        LAW[(Log Analytics)]
+        Sentinel[Microsoft Sentinel]
+        Workbook[Workbooks]
+        Alerts[Alerts]
+    end
+
+    subgraph Recover["Recovery"]
+        RSV[(RSV)]
+        Backup[Backup]
+        ASR[ASR replication]
+    end
+
+    subgraph Platform["IaC & Automation"]
+        Bicep[Bicep modules]
+        OIDC[GitHub Actions OIDC]
+        AA[Automation Account<br/>system-assigned MI]
+        KillSwitch[Kill-switch script]
+    end
+
+    Entra --> Govern
+    MG --> Network & Compute & Data & Security & Observe & Recover
+    Network --> Compute --> Data --> Security
+    Security --> Observe
+    Compute --> Recover
+    Platform -.deploys.-> MG
+    KillSwitch -.tears down on demand.-> Network & Security

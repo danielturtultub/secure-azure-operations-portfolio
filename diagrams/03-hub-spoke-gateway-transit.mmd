@@ -1,0 +1,22 @@
+flowchart LR
+    subgraph Hub["Hub VNet"]
+        VPN[VPN Gateway]
+        FW[Azure Firewall]
+        AppGW[AppGW WAF v2]
+    end
+    subgraph Prod["Spoke prod"]
+        ProdVM[VMs]
+    end
+    subgraph Dev["Spoke dev"]
+        DevVM[VMs]
+    end
+
+    OnPrem[On-prem network] -.S2S VPN.-> VPN
+    VPN -.allow-gateway-transit.-> Prod
+    VPN -.allow-gateway-transit.-> Dev
+    Prod -.use-remote-gateways.-> VPN
+    Dev -.use-remote-gateways.-> VPN
+    Prod -->|0.0.0.0/0 next-hop FW| FW
+    Dev -->|0.0.0.0/0 next-hop FW| FW
+    Internet((Internet)) <-- AppGW
+    AppGW --> Prod

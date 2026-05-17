@@ -1,0 +1,7 @@
+PRIVATE_*
+*.tfstate
+*.tfstate.backup
+.terraform/
+.env
+*.pem
+*.key

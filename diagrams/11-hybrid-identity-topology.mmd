@@ -1,0 +1,20 @@
+flowchart LR
+    subgraph LocalMac["Local — Mac running UTM"]
+        WinSrv[Windows Server 2022 VM]
+        AD[(AD DS Domain<br/>contoso-test.local)]
+        Sync[Microsoft Entra Connect Sync]
+        WinSrv --> AD
+        WinSrv --> Sync
+    end
+
+    subgraph Azure["Azure"]
+        Entra[Microsoft Entra ID]
+        Portal[Azure Portal]
+    end
+
+    User[labuser01] --> AD
+    AD -.user objects.-> Sync
+    Sync -.delta sync 30 min<br/>password hash sync.-> Entra
+    User -.signs in with<br/>on-prem password.-> Portal
+    Portal --> Entra
+    Entra -.validates against<br/>synced password hash.-> Portal

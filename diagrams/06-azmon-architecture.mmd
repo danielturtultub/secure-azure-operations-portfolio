@@ -1,0 +1,25 @@
+flowchart LR
+    VM[VMs with AMA]
+    KV[Key Vault]
+    SA[Storage]
+    NSG[NSGs]
+    Activity[Activity Log]
+
+    DCR[Data Collection Rule]
+    Diag[Diagnostic settings]
+    LAW[(Log Analytics<br/>workspace)]
+    Sentinel[Microsoft Sentinel]
+    Alerts[Metric, Log search,<br/>Activity Log alerts]
+    AG[Action group]
+    Email[Email notification]
+    Workbook[Workbook]
+    Dashboard[Dashboard]
+
+    VM --> DCR --> LAW
+    KV --> Diag --> LAW
+    SA --> Diag --> LAW
+    NSG -.flow logs.-> LAW
+    Activity --> Diag --> LAW
+    LAW --> Sentinel
+    LAW --> Alerts --> AG --> Email
+    LAW --> Workbook --> Dashboard

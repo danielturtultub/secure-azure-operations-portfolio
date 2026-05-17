@@ -1,0 +1,51 @@
+flowchart TB
+    subgraph MGRoot["Management Group hierarchy"]
+        Tenant[Tenant Root MG]
+        LabMG[Lab MG]
+        Tenant --> LabMG
+    end
+
+    subgraph Sub1["Primary subscription — eastus"]
+        subgraph Hub["Hub VNet 10.0.0.0/16"]
+            HubShared[snet-shared]
+            Bastion[AzureBastionSubnet]
+            GW[GatewaySubnet]
+            FW[AzureFirewallSubnet]
+            AppGW[snet-appgw]
+        end
+        subgraph SpokeP["Spoke prod 10.1.0.0/16"]
+            ProdApp[snet-app]
+            ProdData[snet-data]
+        end
+        subgraph SpokeD["Spoke dev 10.2.0.0/16"]
+            DevApp[snet-app]
+        end
+        Hub <--> SpokeP
+        Hub <--> SpokeD
+    end
+
+    subgraph Sub2["Secondary subscription"]
+        Shared[Shared services]
+    end
+
+    subgraph OnPrem["Local Mac — UTM"]
+        WS[Windows Server 2022]
+        AD[(AD DS<br/>contoso-test.local)]
+        Sync[Connect Sync]
+        WS --> AD --> Sync
+    end
+
+    subgraph Platform["Shared platform"]
+        KV[Key Vault RBAC]
+        LAW[(Log Analytics)]
+        Sentinel[Sentinel]
+        RSV[RSV + ASR]
+    end
+
+    LabMG --> Sub1
+    LabMG --> Sub2
+    Sync -.30 min delta sync.-> Entra[Microsoft Entra ID]
+    Entra --> Sub1
+    Entra --> Sub2
+    Sub1 -.diagnostics.-> Platform
+    LAW --> Sentinel

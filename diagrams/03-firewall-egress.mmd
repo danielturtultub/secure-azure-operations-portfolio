@@ -1,0 +1,18 @@
+flowchart LR
+    Spoke1[Spoke prod]
+    Spoke2[Spoke dev]
+    Hub[Hub VNet]
+    FW[Azure Firewall<br/>10.0.254.4]
+    NetRule[Network rule:<br/>DNS allowed]
+    AppRule[Application rule:<br/>FQDN allowlist]
+    NAT[NAT rule:<br/>inbound translation]
+    Internet((Internet))
+
+    Spoke1 -->|UDR 0.0.0.0/0| FW
+    Spoke2 -->|UDR 0.0.0.0/0| FW
+    Hub --> FW
+    FW --> NetRule
+    FW --> AppRule
+    FW --> NAT
+    NetRule --> Internet
+    AppRule --> Internet
