@@ -5,7 +5,7 @@ Tick the box, save the file in `screenshots/` with the exact filename listed.
 
 Cross-reference: see the corresponding section in the master `README.md` for context on each screenshot.
 
-## Captured (8)
+## Captured (9)
 
 - [x] `screenshots/01-mg-hierarchy.png` — Lab MG with primary subscription onboarded
 - [x] `screenshots/01-rgs-tagged-primary.png` — 10 RGs with all five required tags
@@ -15,10 +15,11 @@ Cross-reference: see the corresponding section in the master `README.md` for con
 - [x] `screenshots/01-lock-blocks-delete.png` — ScopeLocked error confirming lock works
 - [x] `screenshots/01-initiative-mg.png` — Lab Hygiene Initiative assigned at MG scope
 - [x] `screenshots/01-tag-inherit-remediation.png` — Inherit-Tag-RG Modify policy assigned at MG with managed identity
+- [x] `screenshots/01-initiative-compliance-aggregated.png` — Compliance dashboard with all 5 assignments at 100% compliant
+
 
 ## Pending — to capture during remaining Module 01 work
 
-- [ ] `screenshots/01-initiative-compliance-aggregated.png` — wait 6–24 hr after initiative assignment for compliance data
 - [ ] `screenshots/01-cost-mg-view.png` — Cost Management at MG scope
 - [ ] `screenshots/01-cost-by-module-tag.png` — Cost analysis grouped by Module tag
 - [ ] `screenshots/01-advisor-five-categories.png` — All five Advisor categories captured
