@@ -2,6 +2,8 @@
 
 The governance layer of the **Secure Azure Administration Environment**. This module deploys a Lab management group containing two onboarded Azure subscriptions, assigns Azure Policy at MG scope (inheriting to both subscriptions), authors a custom policy denying VM SKUs above an approved baseline, applies resource group locks on shared services, demonstrates intentional policy denials end-to-end, and pins Cost Management dashboards keyed off the `Module` tag with cross-subscription roll-up.
 
+> **Scope note:** This implementation runs on a single Azure subscription (Azure for Students). All multi-subscription references in this README — "two subscriptions," "across both subscriptions," "MG inheritance proof" — describe the **target architecture pattern**, not the deployed state. The MG hierarchy, policy assignments, and locks are real and operating; the cross-subscription proof is unavailable. See `docs/decisions/ADR-0005-single-subscription-scope.md` for the rationale and what specifically is not demonstrated.
+
 By the end, the management-group scope rejects untagged or non-compliant deployments across both subscriptions, and per-module spend across both subscriptions is visible in a single pinned dashboard.
 
 ## What this module demonstrates
