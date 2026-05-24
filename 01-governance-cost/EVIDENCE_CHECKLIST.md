@@ -5,7 +5,7 @@ Tick the box, save the file in `screenshots/` with the exact filename listed.
 
 Cross-reference: see the corresponding section in the master `README.md` for context on each screenshot.
 
-## Captured (9)
+## Captured (10)
 
 - [x] `screenshots/01-mg-hierarchy.png` — Lab MG with primary subscription onboarded
 - [x] `screenshots/01-rgs-tagged-primary.png` — 10 RGs with all five required tags
@@ -16,13 +16,14 @@ Cross-reference: see the corresponding section in the master `README.md` for con
 - [x] `screenshots/01-initiative-mg.png` — Lab Hygiene Initiative assigned at MG scope
 - [x] `screenshots/01-tag-inherit-remediation.png` — Inherit-Tag-RG Modify policy assigned at MG with managed identity
 - [x] `screenshots/01-initiative-compliance-aggregated.png` — Compliance dashboard with all 5 assignments at 100% compliant
+- [x] `screenshots/01-advisor-five-categories.png` — All five Advisor categories captured
+
 
 
 ## Pending — to capture during remaining Module 01 work
 
 - [ ] `screenshots/01-cost-mg-view.png` — Cost Management at MG scope (deferred — needs billable resources; capture in Module 04 after VM deployment)
 - [ ] `screenshots/01-cost-by-module-tag.png` — Cost analysis grouped by Module tag (deferred — Azure Cost Management tag picker only shows tags after cost has accrued against them; capture after Module 04 VMs)
-- [ ] `screenshots/01-advisor-five-categories.png` — All five Advisor categories captured
 - [ ] `screenshots/01-mg-policy-exemption.png` — Policy exemption on a sandbox RG (later module)
 
 ## Skipped per ADR-0005 (single-subscription scope)
