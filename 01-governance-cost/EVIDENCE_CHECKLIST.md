@@ -20,8 +20,8 @@ Cross-reference: see the corresponding section in the master `README.md` for con
 
 ## Pending — to capture during remaining Module 01 work
 
-- [ ] `screenshots/01-cost-mg-view.png` — Cost Management at MG scope
-- [ ] `screenshots/01-cost-by-module-tag.png` — Cost analysis grouped by Module tag
+- [ ] `screenshots/01-cost-mg-view.png` — Cost Management at MG scope (deferred — needs billable resources; capture in Module 04 after VM deployment)
+- [ ] `screenshots/01-cost-by-module-tag.png` — Cost analysis grouped by Module tag (deferred — Azure Cost Management tag picker only shows tags after cost has accrued against them; capture after Module 04 VMs)
 - [ ] `screenshots/01-advisor-five-categories.png` — All five Advisor categories captured
 - [ ] `screenshots/01-mg-policy-exemption.png` — Policy exemption on a sandbox RG (later module)
 
