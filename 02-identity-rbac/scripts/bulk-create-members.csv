@@ -1,0 +1,6 @@
+Name [displayName] Required,User name [userPrincipalName] Required,Initial password [passwordProfile] Required,Account enabled (true/false) [accountEnabled],First name [givenName],Last name [surname],Job title [jobTitle],Department [department],Usage location [usageLocation],Street address [streetAddress],State or province [state],Country or region [country],Office [officeLocation],City [city],ZIP or postal code [postalCode],Business phone [businessPhones],Mobile phone [mobilePhone]
+Lab User One,labuser1@dturtultuboutlook.onmicrosoft.com,P@ssLab2026!,true,Lab,User One,Cloud Engineer,Engineering,US,,TX,United States,,Leander,78641,,
+Lab User Two,labuser2@dturtultuboutlook.onmicrosoft.com,P@ssLab2026!,true,Lab,User Two,Cloud Engineer,Engineering,US,,TX,United States,,Leander,78641,,
+Lab User Three,labuser3@dturtultuboutlook.onmicrosoft.com,P@ssLab2026!,true,Lab,User Three,Net Admin,Networking,US,,TX,United States,,Leander,78641,,
+Lab User Four,labuser4@dturtultuboutlook.onmicrosoft.com,P@ssLab2026!,true,Lab,User Four,Security Analyst,Security,US,,TX,United States,,Leander,78641,,
+Lab User Five,labuser5@dturtultuboutlook.onmicrosoft.com,P@ssLab2026!,true,Lab,User Five,Helpdesk,Support,US,,TX,United States,,Leander,78641,,
